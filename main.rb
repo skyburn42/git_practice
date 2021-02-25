@@ -1,10 +1,8 @@
 require 'colorize'
-def puts_git_info(cmd)
-
-  puts `git #{cmd} -h`
-  menu
-end
-
+require_relative 'Git'
+class Main
+  
+  include Git
 
 def menu
   puts ' main menu'.colorize(:cyan)
@@ -22,5 +20,7 @@ def menu
   end
 end
 
-
-menu
+end
+app = Main.new()
+app.menu
+Main.menu
